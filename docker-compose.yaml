@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+
+  cassandra:
+    image: cassandra:3.11
+    hostname: "cassandra"
+    container_name: "cassandra"
+    volumes:
+      - cas-data:/var/lib/cassandra/data
+      - ./location_1.csv:/location_1.csv
+      - ./location_2.csv:/location_2.csv
+
+volumes:
+     cas-data:
