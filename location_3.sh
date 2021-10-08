@@ -8,12 +8,12 @@ cqlsh -e "\
 
 nodetool flush vehicle location_by_date
 
-ll /var/lib/cassandra/data/vehicle/
-
 ll /var/lib/cassandra/data/vehicle/location_by_date-*
 
 /opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-2-big-Data.db
 
 nodetool compact vehicle location_by_date
 
-/opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-4-big-Data.db
+ll /var/lib/cassandra/data/vehicle/location_by_date-*
+
+/opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-3-big-Data.db

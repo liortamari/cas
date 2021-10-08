@@ -9,11 +9,11 @@ nodetool flush vehicle location_by_date
 
 ll /var/lib/cassandra/data/vehicle/location_by_date-*
 
-/opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-5-big-Data.db
+/opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-4-big-Data.db
 
 nodetool compact vehicle location_by_date
 
 ll /var/lib/cassandra/data/vehicle/location_by_date-*
 
-/opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-6-big-Data.db
+/opt/cassandra/tools/bin/sstabledump /var/lib/cassandra/data/vehicle/location_by_date-*/me-5-big-Data.db
 
