@@ -1,6 +1,6 @@
 version: "3.9"
 networks:
-  cassandra:  # docker network where all cassandra nodes will be put in
+  cassandra:
 services:
   cass1:
     build:
@@ -17,13 +17,12 @@ services:
     networks:
       - cassandra
     ports:
-      - "9042:9042"  # Expose native binary CQL port for your apps
+      - "9042:9042"
     volumes:
-      - ./data/cass1:/var/lib/cassandra    # This is the volume that will persist data for cass1 node
-      - ./etc/cass1:/etc/cassandra   # Use your own config files for full control
+      - ./etc_cassandra-3.11.4_vanilla:/etc_cassandra_orig
       - ./start.sh:/start.sh
       - ./docker-entry.sh:/usr/local/bin/docker-entrypoint.sh
-    environment: &environment    # Declare and save environments variables into "environment"
+    environment: &environment
         CASSANDRA_SEEDS: "cass1,cass2"    # The first two nodes will be seeds
         CASSANDRA_CLUSTER_NAME: SolarSystem
         CASSANDRA_DC: Mars
@@ -47,13 +46,12 @@ services:
     networks:
       - cassandra
     ports:
-      - "9043:9042"  # Expose native binary CQL port for your apps
+      - "9043:9042"
     volumes:
-      - ./data/cass2:/var/lib/cassandra    # This is the volume that will persist data for cass2 node
-      - ./etc/cass2:/etc/cassandra    # Use your own config files for full control
+      - ./etc_cassandra-3.11.4_vanilla:/etc_cassandra_orig
       - ./start.sh:/start.sh
       - ./docker-entry.sh:/usr/local/bin/docker-entrypoint.sh
-    environment: *environment    # point to "environment" to use the same environment variables as cass1
+    environment: *environment
 
   cass3:
     build:
@@ -70,10 +68,9 @@ services:
     networks:
       - cassandra
     ports:
-      - "9044:9042"  # Expose native binary CQL port for your apps
+      - "9044:9042"
     volumes:
-      - ./data/cass3:/var/lib/cassandra    # This is the volume that will persist data for cass3 node
-      - ./etc/cass3:/etc/cassandra    # Use your own config files for full control
+      - ./etc_cassandra-3.11.4_vanilla:/etc_cassandra_orig
       - ./start.sh:/start.sh
       - ./docker-entry.sh:/usr/local/bin/docker-entrypoint.sh
-    environment: *environment    # point to "environment" to use the same environment variables as cass1
+    environment: *environment
