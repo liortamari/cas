@@ -21,7 +21,7 @@ services:
     volumes:
       - ./etc_cassandra-3.11.4_vanilla:/etc_cassandra_orig
       - ./start.sh:/start.sh
-      - ./docker-entry.sh:/usr/local/bin/docker-entrypoint.sh
+      - ./docker-entry.sh:/docker-entrypoint.sh
     environment: &environment
         CASSANDRA_SEEDS: "cass1,cass2"    # The first two nodes will be seeds
         CASSANDRA_CLUSTER_NAME: SolarSystem
@@ -50,7 +50,7 @@ services:
     volumes:
       - ./etc_cassandra-3.11.4_vanilla:/etc_cassandra_orig
       - ./start.sh:/start.sh
-      - ./docker-entry.sh:/usr/local/bin/docker-entrypoint.sh
+      - ./docker-entry.sh:/docker-entrypoint.sh
     environment: *environment
 
   cass3:
@@ -72,5 +72,5 @@ services:
     volumes:
       - ./etc_cassandra-3.11.4_vanilla:/etc_cassandra_orig
       - ./start.sh:/start.sh
-      - ./docker-entry.sh:/usr/local/bin/docker-entrypoint.sh
+      - ./docker-entry.sh:/docker-entrypoint.sh
     environment: *environment
